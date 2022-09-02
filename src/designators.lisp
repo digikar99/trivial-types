@@ -1,5 +1,10 @@
 (in-package :trivial-types)
 
+(deftype string-designator ()
+  '(or character
+       symbol
+       string))
+
 (defun character-designator-p (object)
   (and (typep object 'string-designator)
        (= 1 (length (string object)))))
@@ -36,8 +41,3 @@
 (deftype stream-designator ()
   '(or (member t nil)
        stream))
-
-(deftype string-designator ()
-  '(or character
-       symbol
-       string))

@@ -11,6 +11,7 @@
         #+clisp (return (null
                          (nth-value 1 (ignore-errors
                                        (ext:type-expand type-specifier)))))
+        #-(or sbcl openmcl ecl clisp)
         (error "TYPE-SPECIFIER-P not available for this implementation"))))
 
 (deftype type-specifier () `(satisfies type-specifier-p))
